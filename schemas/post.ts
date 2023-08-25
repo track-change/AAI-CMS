@@ -20,10 +20,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
+      name: 'artist',
+      title: 'Artist',
       type: 'reference',
-      to: {type: 'author'},
+      to: {type: 'artist'},
     }),
     defineField({
       name: 'mainImage',
@@ -54,12 +54,12 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      artist: 'artist.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {artist} = selection
+      return {...selection, subtitle: artist && `by ${artist}`}
     },
   },
 })
