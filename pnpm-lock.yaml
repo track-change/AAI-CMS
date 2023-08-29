@@ -8,6 +8,9 @@ dependencies:
   '@sanity/vision':
     specifier: ^3.15.1
     version: 3.15.1(@babel/runtime@7.22.10)(@codemirror/lint@6.4.0)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.4)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.9)
+  media:
+    specifier: ^0.2.1
+    version: 0.2.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -4755,6 +4758,10 @@ packages:
 
   /md5-o-matic@0.1.1:
     resolution: {integrity: sha512-QBJSFpsedXUl/Lgs4ySdB2XCzUEcJ3ujpbagdZCkRaYIaC0kFnID8jhc84KEiVv6dNFtIrmW7bqow0lDxgJi6A==}
+    dev: false
+
+  /media@0.2.1:
+    resolution: {integrity: sha512-pGPryJrUp1cTp0YuXh42koYwQV6Vn99NYRamZC7HXArML8FVHq5CjJ+zKa2IaI8WaGFjh318+P5+XGIH5rrYdA==}
     dev: false
 
   /memoize-resolver@1.0.0:
