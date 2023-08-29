@@ -48,9 +48,35 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'pressKit',
-      title: 'Press Kit',
-      type: 'file',
+      name: 'cta',
+      title: 'CTA',
+      type: 'array',
+      of: [
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'object',
+          fields: [
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+            },
+          ],
+        },
+        {
+          name: 'Document',
+          title: 'Document',
+          type: 'object',
+          fields: [
+            {
+              name: 'pressKit',
+              title: 'Press Kit',
+              type: 'file',
+            },
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'curator',

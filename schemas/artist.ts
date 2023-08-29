@@ -84,6 +84,31 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'frontCaptions',
+      title: 'Front Captions',
+      type: 'array',
+      of: [
+        {
+          name: 'title',
+          title: 'Title',
+          type: 'object',
+          fields: [
+            {
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'value',
+              title: 'Value',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    }),
+
+    defineField({
       name: 'bio',
       title: 'Bio',
       type: 'array',
@@ -93,6 +118,20 @@ export default defineType({
           type: 'block',
           styles: [{title: 'Normal', value: 'normal'}],
           lists: [],
+        },
+      ],
+    }),
+
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+          name: 'tag',
+          title: 'Tag',
+          type: 'reference',
+          to: [{type: 'tag'}],
         },
       ],
     }),
