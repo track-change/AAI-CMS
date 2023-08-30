@@ -21,6 +21,18 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'type',
+      title: 'Program Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Exhibition', value: 'exhibition'},
+          {title: 'Event', value: 'event'},
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'startDateTime',
       title: 'Start Date/Time',
       type: 'datetime',
