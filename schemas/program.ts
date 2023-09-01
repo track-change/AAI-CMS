@@ -45,6 +45,14 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'season',
+      title: 'Season and Year',
+      type: 'string',
+      description: 'e.g., Spring 2020, Fall 2019, Summer 2019...',
+      hidden: ({parent}) => parent.endDateTime <= new Date(),
+    }),
+    
+    defineField({
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',
@@ -183,6 +191,33 @@ export default defineType({
     select: {
       title: 'name',
       media: 'coverImage',
+      endDateTime: 'endDateTime',
+    },
+    prepare(selection){
+      const now = new Date()
+      const endDateTime = new Date(selection.endDateTime)
+      const isCurrentOrUpcoming = endDateTime >= now
+
+      return {
+        title: selection.title,
+        media: selection.media,
+        subtitle: isCurrentOrUpcoming ? 'Current & Upcoming' : 'Past Seasons',
+        isCurrent: isCurrentOrUpcoming,
+      };
     },
   },
+  orderings: [
+    {
+      name: 'endingSoon',
+      title: 'Ending Soon',
+      by: [
+        {
+          field: 'endDateTime',
+          direction: 'desc',
+        },
+      ],
+    },
+  ],
+  initialValue: () => ({
+  })
 })
