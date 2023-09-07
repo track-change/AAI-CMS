@@ -6,9 +6,81 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'address',
+      title: 'Address',
       type: 'string',
+    }),
+    defineField({
+      name: 'phone',
+      title: 'Phone',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctafields',
+      title: 'CTA Fields',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'ctafield',
+          title: 'CTA Field',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'cta',
+              title: 'CTA',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'url',
+                  title: 'URL',
+                  type: 'url',
+                }),
+                defineField({
+                  name: 'value',
+                  title: 'Value',
+                  type: 'string',
+                }),
+              ],
+            }),
+            defineField({
+              name: 'embed',
+              title: 'Embed',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'url',
+                  title: 'URL',
+                  type: 'url',
+                }),
+                defineField({
+                  name: 'value',
+                  title: 'Value',
+                  type: 'string',
+                }),
+              ],
+            }),
+            defineField({
+              name: 'body',
+              title: 'Body',
+              type: 'array',
+              of: [
+                {
+                  title: 'Block',
+                  type: 'block',
+                  styles: [{title: 'Normal', value: 'normal'}],
+                  lists: [],
+                },
+              ],
+            }),
+          ],
+        }),
+      ],
     }),
   ],
 })
