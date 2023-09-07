@@ -82,5 +82,18 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'forms',
+      title: 'Forms',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'form',
+          title: 'Form',
+          type: 'reference',
+          to: [{type: 'form'}],
+        }),
+      ],
+    }),
   ],
 })
