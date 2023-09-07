@@ -51,7 +51,7 @@ export default defineType({
       description: 'e.g., Spring 2020, Fall 2019, Summer 2019...',
       hidden: ({parent}) => parent.endDateTime <= new Date(),
     }),
-    
+
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
@@ -193,7 +193,7 @@ export default defineType({
       media: 'coverImage',
       endDateTime: 'endDateTime',
     },
-    prepare(selection){
+    prepare(selection) {
       const now = new Date()
       const endDateTime = new Date(selection.endDateTime)
       const isCurrentOrUpcoming = endDateTime >= now
@@ -203,7 +203,7 @@ export default defineType({
         media: selection.media,
         subtitle: isCurrentOrUpcoming ? 'Current & Upcoming' : 'Past Seasons',
         isCurrent: isCurrentOrUpcoming,
-      };
+      }
     },
   },
   orderings: [
@@ -218,6 +218,5 @@ export default defineType({
       ],
     },
   ],
-  initialValue: () => ({
-  })
+  initialValue: () => ({}),
 })

@@ -6,14 +6,17 @@ import {structure} from './src/structure/'
 
 export default defineConfig({
   name: 'default',
-  title: 'Asian Arts Initiative',
+  title: 'Asian Arts Initiative Website',
 
-  projectId: '4e5m3wpi',
-  dataset: 'development',
+  projectId: 'jy6yg9wb',
+  dataset: 'production',
 
-  plugins: [deskTool({
-   structure
-  }), visionTool()],
+  plugins: [
+    deskTool({
+      structure,
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,

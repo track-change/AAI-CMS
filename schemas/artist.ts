@@ -107,7 +107,6 @@ export default defineType({
         },
       ],
     }),
-
     defineField({
       name: 'bio',
       title: 'Bio',
@@ -121,7 +120,6 @@ export default defineType({
         },
       ],
     }),
-
     defineField({
       name: 'tags',
       title: 'Tags',
