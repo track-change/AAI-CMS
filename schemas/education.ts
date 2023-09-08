@@ -14,6 +14,25 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       validation: (Rule) => Rule.required(),
+      options: {
+        source: 'name',
+        maxLength: 96,
+      }
+    }),
+    defineField({
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
     }),
     defineField({
       name: 'coverImage',
