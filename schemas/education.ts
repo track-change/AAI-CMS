@@ -16,12 +16,27 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
+    }),
+    defineField({
       name: 'cta',
       title: 'CTA',
       type: 'array',
       of: [
         {
-          name: 'SingleLine',
+          name: 'singleLine',
           title: 'Single Line',
           type: 'object',
           fields: [
@@ -38,7 +53,7 @@ export default defineType({
           ],
         },
         {
-          name: 'MultiLine',
+          name: 'multiLine',
           title: 'Multi Line',
           type: 'object',
           fields: [
@@ -141,6 +156,28 @@ export default defineType({
           type: 'block',
           styles: [{title: 'Normal', value: 'normal'}],
           lists: [],
+        },
+      ],
+    }),
+    defineField({
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            },
+          ],
         },
       ],
     }),
