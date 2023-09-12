@@ -37,14 +37,14 @@ export default defineType({
               type: 'object',
               fields: [
                 defineField({
-                  name: 'url',
-                  title: 'URL',
-                  type: 'url',
-                }),
-                defineField({
                   name: 'value',
                   title: 'Value',
                   type: 'string',
+                }),
+                defineField({
+                  name: 'url',
+                  title: 'URL',
+                  type: 'url',
                 }),
               ],
             }),
@@ -57,11 +57,6 @@ export default defineType({
                   name: 'url',
                   title: 'URL',
                   type: 'url',
-                }),
-                defineField({
-                  name: 'value',
-                  title: 'Value',
-                  type: 'string',
                 }),
               ],
             }),

@@ -74,8 +74,16 @@ export default defineType({
               initialValue: false,
             }),
 
-            //     handle if type is checkbox, radio, or select
-            //     how do i show it when i need it and hide it when i don't?
+            defineField({
+              name: 'placeholder',
+              title: 'Placeholder',
+              type: 'string',
+              hidden: ({parent}) => {
+                return !['text', 'email', 'phone', 'number', 'date', 'time', 'url'].includes(
+                  parent?.type
+                )
+              },
+            }),
 
             defineField({
               name: 'options',
@@ -113,7 +121,7 @@ export default defineType({
     defineField({
       name: 'submitTo',
       title: 'Submit To',
-      type: 'string',
+      type: 'url',
       placeholder: 'https://formspree.io/f/xnqoqzqk',
     }),
   ],
