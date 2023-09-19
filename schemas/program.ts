@@ -32,6 +32,25 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+    defineField ({
+      name: 'eventTypes',
+      title: 'Event Types',
+      type: 'array',
+      of: [{
+        type: 'string',
+      }],
+      options: {
+        layout: 'grid',
+        list: [
+          { title: 'Screening', value: 'screening' },
+          { title: 'Performance', value: 'performance' },
+          { title: 'Workshop', value: 'workshop' },
+          { title: 'Concert', value: 'concert' },
+          { title: 'Book Talk', value: 'book-talk' },
+        ],
+      },
+      hidden: ({ document }) => document?.type !== 'event',
+    }),
     defineField({
       name: 'startDateTime',
       title: 'Start Date/Time',
@@ -78,8 +97,12 @@ export default defineType({
           type: 'object',
           fields: [
             {
-              name: 'url',
-              title: 'URL',
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },{
+              name: 'value',
+              title: 'Value',
               type: 'url',
             },
           ],
@@ -90,9 +113,72 @@ export default defineType({
           type: 'object',
           fields: [
             {
-              name: 'pressKit',
-              title: 'Press Kit',
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'chooseFile',
+              title: 'Choose file',
               type: 'file',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'frontCaptions',
+      title: 'Front Captions',
+      type: 'array',
+      of: [
+        // {
+        //   name: 'SingleLine',
+        //   title: 'Single Line',
+        //   type: 'object',
+        //   fields: [
+        //     {
+        //       name: 'displayTitle',
+        //       title: 'Display Title',
+        //       type: 'string',
+        //     },
+        //     {
+        //       name: 'value',
+        //       title: 'Value',
+        //       type: 'string',
+        //     },
+        //   ],
+        // },
+        {
+          name: 'MultiLine',
+          title: 'Multi Line',
+          type: 'object',
+          fields: [
+            {
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'value',
+              title: 'Value',
+              type: 'text',
+            },
+          ],
+        },
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'object',
+          fields: [
+            {
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'value',
+              title: 'Value',
+              type: 'url',
             },
           ],
         },

@@ -35,21 +35,6 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'coverImage',
-      title: 'Cover Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt Text',
-          type: 'string',
-        },
-      ],
-    }),
-    defineField({
       name: 'cta',
       title: 'CTA',
       type: 'array',
