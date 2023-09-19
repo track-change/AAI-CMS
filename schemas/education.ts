@@ -90,6 +90,18 @@ export default defineType({
             },
           ],
         },
+        {
+          name: 'Document',
+          title: 'Document',
+          type: 'object',
+          fields: [
+            {
+              name: 'pressKit',
+              title: 'Press Kit',
+              type: 'file',
+            },
+          ],
+        },
       ],
     }),
     defineField({

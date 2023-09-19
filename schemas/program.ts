@@ -32,24 +32,26 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    defineField ({
+    defineField({
       name: 'eventTypes',
       title: 'Event Types',
       type: 'array',
-      of: [{
-        type: 'string',
-      }],
+      of: [
+        {
+          type: 'string',
+        },
+      ],
       options: {
         layout: 'grid',
         list: [
-          { title: 'Screening', value: 'screening' },
-          { title: 'Performance', value: 'performance' },
-          { title: 'Workshop', value: 'workshop' },
-          { title: 'Concert', value: 'concert' },
-          { title: 'Book Talk', value: 'book-talk' },
+          {title: 'Screening', value: 'screening'},
+          {title: 'Performance', value: 'performance'},
+          {title: 'Workshop', value: 'workshop'},
+          {title: 'Concert', value: 'concert'},
+          {title: 'Book Talk', value: 'book-talk'},
         ],
       },
-      hidden: ({ document }) => document?.type !== 'event',
+      hidden: ({document}) => document?.type !== 'event',
     }),
     defineField({
       name: 'startDateTime',
@@ -92,6 +94,40 @@ export default defineType({
       type: 'array',
       of: [
         {
+          name: 'singleLine',
+          title: 'Single Line',
+          type: 'object',
+          fields: [
+            {
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'value',
+              title: 'Value',
+              type: 'string',
+            },
+          ],
+        },
+        {
+          name: 'multiLine',
+          title: 'Multi Line',
+          type: 'object',
+          fields: [
+            {
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'value',
+              title: 'Value',
+              type: 'text',
+            },
+          ],
+        },
+        {
           name: 'link',
           title: 'Link',
           type: 'object',
@@ -100,7 +136,8 @@ export default defineType({
               name: 'displayTitle',
               title: 'Display Title',
               type: 'string',
-            },{
+            },
+            {
               name: 'value',
               title: 'Value',
               type: 'url',
@@ -108,7 +145,7 @@ export default defineType({
           ],
         },
         {
-          name: 'Document',
+          name: 'document',
           title: 'Document',
           type: 'object',
           fields: [
