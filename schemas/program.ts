@@ -145,7 +145,7 @@ export default defineType({
           ],
         },
         {
-          name: 'document',
+          name: 'doc',
           title: 'Document',
           type: 'object',
           fields: [
