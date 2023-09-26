@@ -23,6 +23,18 @@ export default defineType({
       to: [{type: 'tag'}],
     }),
     defineField({
+      name: 'startDateTime',
+      title: 'Start Date/Time',
+      type: 'datetime',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'endDateTime',
+      title: 'End Date/Time',
+      type: 'datetime',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'price',
       title: 'Price',
       type: 'string',
