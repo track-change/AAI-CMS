@@ -23,6 +23,16 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
     }),
     defineField({
       name: 'frontCaptions',
@@ -100,6 +110,12 @@ export default defineType({
       title: 'Media',
       type: 'url',
       description: 'Link to Video, Audio, or Image',
+    }),
+    defineField({
+      name: 'date',
+      title: 'Year',
+      type: 'number',
+      description: 'e.g. 2023',
     }),
     defineField({
       name: 'description',
