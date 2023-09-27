@@ -15,6 +15,10 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       validation: (Rule) => Rule.required(),
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
     }),
     defineField({
       name: 'coverImage',

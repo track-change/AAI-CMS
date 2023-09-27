@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {FiInstagram, FiFacebook, FiGlobe} from 'react-icons/fi'
 
 export default defineType({
   name: 'artist',
@@ -49,6 +50,7 @@ export default defineType({
           name: 'facebook',
           title: 'Facebook',
           type: 'object',
+          icon: FiFacebook,
           fields: [
             {
               name: 'url',
@@ -61,6 +63,7 @@ export default defineType({
           name: 'instagram',
           title: 'Instagram',
           type: 'object',
+          icon: FiInstagram,
           fields: [
             {
               name: 'url',
@@ -73,6 +76,7 @@ export default defineType({
           name: 'artistWebsite',
           title: 'Artist Website',
           type: 'object',
+          icon: FiGlobe,
           fields: [
             {
               name: 'url',

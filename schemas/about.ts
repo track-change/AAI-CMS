@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {ImageIcon, DocumentTextIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'about',
@@ -19,6 +20,7 @@ export default defineType({
           name: 'body',
           title: 'Body',
           type: 'object',
+          icon: DocumentTextIcon,
           fields: [
             {
               name: 'value',
@@ -31,6 +33,7 @@ export default defineType({
           name: 'subheading',
           title: 'Subheading',
           type: 'object',
+          icon: DocumentTextIcon,
           fields: [
             {
               name: 'value',
@@ -43,6 +46,7 @@ export default defineType({
           name: 'image',
           title: 'Image',
           type: 'image',
+          icon: ImageIcon,
           options: {
             hotspot: true,
           },
