@@ -17,6 +17,7 @@ import partnerships from './partnerships'
 import opportunities from './opportunities'
 import support from './support'
 import news from './news'
+import banner from './banner'
 
 export const schemaTypes = [
   program,
@@ -38,4 +39,5 @@ export const schemaTypes = [
   news,
   blockContent,
   settings,
+  banner,
 ]
