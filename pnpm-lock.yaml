@@ -5,9 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@sanity/client':
+    specifier: ^6.4.12
+    version: 6.4.12
   '@sanity/icons':
     specifier: ^2.4.1
     version: 2.4.1(react@18.2.0)
+  '@sanity/ui':
+    specifier: ^1.8.2
+    version: 1.8.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+  '@sanity/util':
+    specifier: ^3.17.0
+    version: 3.17.0
   '@sanity/vision':
     specifier: ^3.15.1
     version: 3.16.7(@babel/runtime@7.23.1)(@codemirror/lint@6.4.2)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.1.0)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
@@ -17,6 +26,9 @@ dependencies:
   nanoid:
     specifier: ^4.0.2
     version: 4.0.2
+  prop-types:
+    specifier: ^15.8.1
+    version: 15.8.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -40,6 +52,9 @@ devDependencies:
   '@sanity/eslint-config-studio':
     specifier: ^3.0.0
     version: 3.0.1(eslint@8.50.0)(typescript@4.9.5)
+  '@types/prop-types':
+    specifier: ^15.7.8
+    version: 15.7.8
   '@types/react':
     specifier: ^18.0.25
     version: 18.2.23
@@ -2279,6 +2294,15 @@ packages:
       - supports-color
     dev: false
 
+  /@sanity/types@3.17.0:
+    resolution: {integrity: sha512-bjqsw11XKSE5jly2h3ex7NfTjIbefbfNA/W7pVqTdhPmmC+aLxLh+6sMuCzOMhwz7I2ZCsdAhxtfs+6oXZtzDQ==}
+    dependencies:
+      '@sanity/client': 6.4.12
+      '@types/react': 18.2.23
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@sanity/ui@1.8.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11):
     resolution: {integrity: sha512-XWtVdIG1PWBEiNPcObRfXsX/EPhiPCHMmfdn+frPIVLTLnoQnNju3W9UQAWec+BwjXBCpPtfc36AoiQSDUkxzw==}
     engines: {node: '>=14.0.0'}
@@ -2305,6 +2329,17 @@ packages:
     engines: {node: '>=14.18.0'}
     dependencies:
       '@sanity/types': 3.16.7
+      get-random-values-esm: 1.0.0
+      moment: 2.29.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@sanity/util@3.17.0:
+    resolution: {integrity: sha512-c5HcojpHmWCFt/3KaMrtQJm/SGx6zW4FI6LIOFvPrf9Laxc6m60I07hMeTpeO0qRmYicYlEbhfczmfoBROzIyw==}
+    engines: {node: '>=14.18.0'}
+    dependencies:
+      '@sanity/types': 3.17.0
       get-random-values-esm: 1.0.0
       moment: 2.29.4
     transitivePeerDependencies:
@@ -2454,8 +2489,8 @@ packages:
     resolution: {integrity: sha512-lqa4UEhhv/2sjjIQgjX8B+RBjj47eo0mzGasklVJ78UKGQY1r0VpB9XHDaZZO9qzEFDdy4MrXLuEaSmPrPSe/A==}
     dev: false
 
-  /@types/prop-types@15.7.7:
-    resolution: {integrity: sha512-FbtmBWCcSa2J4zL781Zf1p5YUBXQomPEcep9QZCfRfQgTxz3pJWiDFLebohZ9fFntX5ibzOkSsrJ0TEew8cAog==}
+  /@types/prop-types@15.7.8:
+    resolution: {integrity: sha512-kMpQpfZKSCBqltAJwskgePRaYRFukDkm1oItcAbC3gNELR20XIBcN9VRgg4+m8DKsTfkWeA4m4Imp4DDuWy7FQ==}
 
   /@types/react-copy-to-clipboard@5.0.5:
     resolution: {integrity: sha512-en3JGqPA4RX4aUlo6q6uUbnqLp31Dhm2E/thiMvFTIvU+dUDG249jBG2MJ0rPMXE/MbKVrpmi/1r1G4QLhIHKQ==}
@@ -2472,7 +2507,7 @@ packages:
   /@types/react@18.2.23:
     resolution: {integrity: sha512-qHLW6n1q2+7KyBEYnrZpcsAmU/iiCh9WGCKgXvMxx89+TYdJWRjZohVIo9XTcoLhfX3+/hP0Pbulu3bCZQ9PSA==}
     dependencies:
-      '@types/prop-types': 15.7.7
+      '@types/prop-types': 15.7.8
       '@types/scheduler': 0.16.4
       csstype: 3.1.2
 

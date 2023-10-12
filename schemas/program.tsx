@@ -1,4 +1,5 @@
-import {defineField, defineType} from 'sanity'
+import {SanityDocument, defineField, defineType} from 'sanity'
+import {RelatedInput} from '../components/RelatedInput'
 
 export default defineType({
   name: 'program',
@@ -72,7 +73,6 @@ export default defineType({
       description: 'e.g., Spring 2020, Fall 2019, Summer 2019...',
       hidden: ({parent}) => parent.endDateTime <= new Date(),
     }),
-
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
@@ -93,40 +93,6 @@ export default defineType({
       title: 'CTA',
       type: 'array',
       of: [
-        {
-          name: 'singleLine',
-          title: 'Single Line',
-          type: 'object',
-          fields: [
-            {
-              name: 'displayTitle',
-              title: 'Display Title',
-              type: 'string',
-            },
-            {
-              name: 'value',
-              title: 'Value',
-              type: 'string',
-            },
-          ],
-        },
-        {
-          name: 'multiLine',
-          title: 'Multi Line',
-          type: 'object',
-          fields: [
-            {
-              name: 'displayTitle',
-              title: 'Display Title',
-              type: 'string',
-            },
-            {
-              name: 'value',
-              title: 'Value',
-              type: 'text',
-            },
-          ],
-        },
         {
           name: 'link',
           title: 'Link',
@@ -308,6 +274,48 @@ export default defineType({
           to: [{type: 'tag'}],
         },
       ],
+    }),
+    // select three related programs to display on the program page allow for adding once
+    defineField({
+      name: 'relatedPrograms',
+      title: 'Related Programs',
+      type: 'array',
+      of: [
+        {
+          name: 'relatedProgram',
+          title: 'Related Program',
+          type: 'reference',
+          to: [{type: 'program'}],
+          options: {
+            filter: ({document}) => {
+              const existingRelatedPrograms = (document?.relatedPrograms as {_ref: string}[])
+                ?.map((program) => program._ref)
+                .filter(Boolean)
+              console.log(document._id.replace(/^drafts\./, ''), existingRelatedPrograms)
+              return {
+                filter:
+                  '!(_id in $existingRelatedPrograms) && endDateTime >= $now && !(_id in path("drafts.**")) && _id != $currentProgramId',
+                params: {
+                  currentProgramId: document._id.replace(/^drafts\./, ''),
+                  now: new Date(),
+                  existingRelatedPrograms,
+                },
+                orderings: [
+                  {
+                    field: 'tags',
+                    direction: 'desc',
+                  },
+                ],
+              }
+            },
+          },
+        },
+      ],
+      // validation unique and only allow 3
+      validation: (Rule) => Rule.unique().max(3).error('You can only add 3 related programs.'),
+      components: {
+        input: (props: any) => <RelatedInput {...props} />,
+      },
     }),
   ],
   preview: {
