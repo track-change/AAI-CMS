@@ -276,47 +276,47 @@ export default defineType({
       ],
     }),
     // select three related programs to display on the program page allow for adding once
-    defineField({
-      name: 'relatedPrograms',
-      title: 'Related Programs',
-      type: 'array',
-      of: [
-        {
-          name: 'relatedProgram',
-          title: 'Related Program',
-          type: 'reference',
-          to: [{type: 'program'}],
-          options: {
-            filter: ({document}) => {
-              const existingRelatedPrograms = (document?.relatedPrograms as {_ref: string}[])
-                ?.map((program) => program._ref)
-                .filter(Boolean)
-              console.log(document._id.replace(/^drafts\./, ''), existingRelatedPrograms)
-              return {
-                filter:
-                  '!(_id in $existingRelatedPrograms) && endDateTime >= $now && !(_id in path("drafts.**")) && _id != $currentProgramId',
-                params: {
-                  currentProgramId: document._id.replace(/^drafts\./, ''),
-                  now: new Date(),
-                  existingRelatedPrograms,
-                },
-                orderings: [
-                  {
-                    field: 'tags',
-                    direction: 'desc',
-                  },
-                ],
-              }
-            },
-          },
-        },
-      ],
-      // validation unique and only allow 3
-      validation: (Rule) => Rule.unique().max(3).error('You can only add 3 related programs.'),
-      components: {
-        input: (props: any) => <RelatedInput {...props} />,
-      },
-    }),
+    // defineField({
+    //   name: 'relatedPrograms',
+    //   title: 'Related Programs',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       name: 'relatedProgram',
+    //       title: 'Related Program',
+    //       type: 'reference',
+    //       to: [{type: 'program'}],
+    //       options: {
+    //         filter: ({document}) => {
+    //           const existingRelatedPrograms = (document?.relatedPrograms as {_ref: string}[])
+    //             ?.map((program) => program._ref)
+    //             .filter(Boolean)
+    //           console.log(document._id.replace(/^drafts\./, ''), existingRelatedPrograms)
+    //           return {
+    //             filter:
+    //               '!(_id in $existingRelatedPrograms) && endDateTime >= $now && !(_id in path("drafts.**")) && _id != $currentProgramId',
+    //             params: {
+    //               currentProgramId: document._id.replace(/^drafts\./, ''),
+    //               now: new Date(),
+    //               existingRelatedPrograms,
+    //             },
+    //             orderings: [
+    //               {
+    //                 field: 'tags',
+    //                 direction: 'desc',
+    //               },
+    //             ],
+    //           }
+    //         },
+    //       },
+    //     },
+    //   ],
+    //   // validation unique and only allow 3
+    //   validation: (Rule) => Rule.unique().max(3).error('You can only add 3 related programs.'),
+    //   components: {
+    //     input: (props: any) => <RelatedInput {...props} />,
+    //   },
+    // }),
   ],
   preview: {
     select: {
