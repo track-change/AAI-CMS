@@ -1,4 +1,3 @@
-import {schemaTypes} from './../../schemas/index'
 import {StructureBuilder, StructureResolverContext} from 'sanity/lib/exports/desk'
 
 export const structure = (S: StructureBuilder, context: StructureResolverContext) => {

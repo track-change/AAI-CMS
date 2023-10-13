@@ -34,40 +34,6 @@ export default defineType({
       type: 'array',
       of: [
         {
-          name: 'SingleLine',
-          title: 'Single Line',
-          type: 'object',
-          fields: [
-            {
-              name: 'displayTitle',
-              title: 'Display Title',
-              type: 'string',
-            },
-            {
-              name: 'value',
-              title: 'Value',
-              type: 'string',
-            },
-          ],
-        },
-        {
-          name: 'MultiLine',
-          title: 'Multi Line',
-          type: 'object',
-          fields: [
-            {
-              name: 'displayTitle',
-              title: 'Display Title',
-              type: 'string',
-            },
-            {
-              name: 'value',
-              title: 'Value',
-              type: 'text',
-            },
-          ],
-        },
-        {
           name: 'link',
           title: 'Link',
           type: 'object',
@@ -81,6 +47,23 @@ export default defineType({
               name: 'value',
               title: 'Value',
               type: 'url',
+            },
+          ],
+        },
+        {
+          name: 'doc',
+          title: 'Document',
+          type: 'object',
+          fields: [
+            {
+              name: 'displayTitle',
+              title: 'Display Title',
+              type: 'string',
+            },
+            {
+              name: 'chooseFile',
+              title: 'Choose file',
+              type: 'file',
             },
           ],
         },
