@@ -92,7 +92,7 @@ export default defineType({
           to: [{type: 'education'}],
         },
       ],
-      validation: (Rule) => Rule.required().unique().error('At least one program is required'),
+      validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
     }),
     defineField({
       name: 'mediaLibrary',
@@ -106,7 +106,7 @@ export default defineType({
           to: [{type: 'media'}],
         },
       ],
-      validation: (Rule) => Rule.required().unique().error('At least one program is required'),
+      validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
     }),
     defineField({
       name: 'tickets',
@@ -132,7 +132,7 @@ export default defineType({
           },
         },
       ],
-      validation: (Rule) => Rule.required().unique().error('At least one program is required'),
+      validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
     }),
     defineField({
       name: 'banners',
@@ -146,7 +146,7 @@ export default defineType({
           to: [{type: 'banner'}],
         },
       ],
-      validation: (Rule) => Rule.required().unique().error('At least one program is required'),
+      validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
     }),
   ],
 })
