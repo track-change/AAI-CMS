@@ -169,6 +169,12 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'forms',
+      title: 'Forms',
+      type: 'reference',
+      to: [{type: 'form'}],
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

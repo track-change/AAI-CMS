@@ -18,11 +18,14 @@ import opportunities from './opportunities'
 import support from './support'
 import news from './news'
 import banner from './banner'
+import home from './home'
+import venuePage from './venuePage'
 
 export const schemaTypes = [
   program,
   about,
   artist,
+  home,
   contactUs,
   people,
   partnerships,
@@ -31,6 +34,7 @@ export const schemaTypes = [
   education,
   media,
   venue,
+  venuePage,
   visit,
   ticket,
   post,

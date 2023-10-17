@@ -2,8 +2,8 @@ import {defineField, defineType} from 'sanity'
 import {ImageIcon, DocumentTextIcon} from '@sanity/icons'
 
 export default defineType({
-  name: 'about',
-  title: 'About',
+  name: 'venuePage',
+  title: 'Venue Page',
   type: 'document',
   fields: [
     defineField({
@@ -28,16 +28,6 @@ export default defineType({
               type: 'text',
             },
           ],
-          preview: {
-            select: {
-              title: 'value',
-            },
-            prepare({title}) {
-              return {
-                title: title ? `${title.split('\n')[0].slice(0, 50)}...` : 'Body',
-              }
-            },
-          },
         },
         {
           name: 'subheading',
@@ -51,16 +41,6 @@ export default defineType({
               type: 'string',
             },
           ],
-          preview: {
-            select: {
-              title: 'value',
-            },
-            prepare({title}) {
-              return {
-                title: `⎯ ${title} ⎯` || 'Subheading',
-              }
-            },
-          },
         },
         {
           name: 'image',
@@ -82,6 +62,20 @@ export default defineType({
               type: 'string',
             },
           ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'rentals',
+      title: 'Rentals',
+      type: 'array',
+      of: [
+        {
+          name: 'venue',
+          title: 'Venue',
+          type: 'reference',
+          to: [{type: 'venue'}],
+          validation: (Rule) => Rule.unique().error('Cant have duplicate venues'),
         },
       ],
     }),

@@ -1,11 +1,7 @@
 import {StructureBuilder, StructureResolverContext} from 'sanity/lib/exports/desk'
 
 export const structure = (S: StructureBuilder, context: StructureResolverContext) => {
-  // Define an array of page information (schema type, document ID, and title)
-  const pages = [
-    {schemaType: 'settings', documentId: 'settings', title: 'Settings'},
-    {schemaType: 'visit', documentId: 'visit', title: 'Visit'}, // Add more pages as needed
-  ]
+  const pages = [{schemaType: 'settings', documentId: 'settings', title: 'Settings'}]
 
   const aboutSection = [
     {schemaType: 'about', documentId: 'about', title: 'About'},
@@ -14,6 +10,12 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
     {schemaType: 'support', documentId: 'support', title: 'Support'},
     {schemaType: 'partnerships', documentId: 'partnerships', title: 'Partnerships'},
     {schemaType: 'opportunities', documentId: 'opportunities', title: 'Opportunities'},
+  ]
+
+  const sitePages = [
+    {schemaType: 'home', documentId: 'home', title: 'Home'},
+    {schemaType: 'visit', documentId: 'visit', title: 'Visit'},
+    {schemaType: 'venuePage', documentId: 'venuePage', title: 'Venue Page'},
   ]
 
   return S.list()
@@ -30,15 +32,33 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
               .title(page.title)
           )
       ),
-      S.divider(), // Add a divider to separate the dynamic pages from other pages
-      // create an "About Section" list item and add the aboutSection array as its child
+      S.divider(),
       S.listItem()
-        .title('About Section')
+        .title('Pages')
         .child(
           S.list()
-            .title('About Section')
+            .title('Pages')
             .items([
-              ...aboutSection.map((page) =>
+              S.listItem()
+                .title('About')
+                .child(
+                  S.list()
+                    .title('About')
+                    .items([
+                      ...aboutSection.map((page) =>
+                        S.listItem()
+                          .title(page.title)
+                          .child(
+                            S.editor()
+                              .id(page.schemaType)
+                              .schemaType(page.schemaType)
+                              .documentId(page.documentId)
+                              .title(page.title)
+                          )
+                      ),
+                    ])
+                ),
+              ...sitePages.map((page) =>
                 S.listItem()
                   .title(page.title)
                   .child(
@@ -54,7 +74,9 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
       S.divider(),
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          ![...pages, ...aboutSection].some((page) => page.schemaType === listItem.getId())
+          ![...pages, ...aboutSection, ...sitePages].some(
+            (page) => page.schemaType === listItem.getId()
+          )
       ),
     ])
 }

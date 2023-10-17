@@ -1,4 +1,4 @@
-import {SanityDocument, defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 import {RelatedInput} from '../components/RelatedInput'
 
 export default defineType({

@@ -28,4 +28,16 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'info',
+      subtitle: 'link.text',
+    },
+    prepare({title, subtitle}) {
+      return {
+        title: title || subtitle || 'Banner',
+        subtitle: title ? subtitle : undefined,
+      }
+    },
+  },
 })
