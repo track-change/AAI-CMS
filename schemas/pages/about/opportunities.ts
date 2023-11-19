@@ -10,5 +10,14 @@ export default defineType({
       title: 'Title',
       type: 'string',
     }),
+    defineField({
+      name: 'coverImage',
+      type: 'coverImage',
+    }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    }),
   ],
 })

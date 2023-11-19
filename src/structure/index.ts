@@ -8,7 +8,6 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
     {schemaType: 'contactUs', documentId: 'contactUs', title: 'Contact Us'},
     {schemaType: 'people', documentId: 'people', title: 'People'},
     {schemaType: 'support', documentId: 'support', title: 'Support'},
-    {schemaType: 'partnerships', documentId: 'partnerships', title: 'Partnerships'},
     {schemaType: 'opportunities', documentId: 'opportunities', title: 'Opportunities'},
   ]
 

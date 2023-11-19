@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {TagIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'tag',
@@ -11,4 +12,15 @@ export default defineType({
       type: 'string',
     }),
   ],
+  preview: {
+    select: {
+      title: 'tag',
+    },
+    prepare({title}: {title: string}) {
+      return {
+        title,
+        media: TagIcon,
+      }
+    },
+  },
 })

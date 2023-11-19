@@ -6,31 +6,23 @@ import program from './program'
 import education from './education'
 import venue from './venue'
 import ticket from './ticket'
-import visit from './visit'
+import visit from './pages/visit'
 import media from './media'
 import form from './form'
 import tags from './tag'
-import about from './about'
-import contactUs from './contactUs'
-import people from './people'
-import partnerships from './partnerships'
-import opportunities from './opportunities'
-import support from './support'
 import news from './news'
 import banner from './banner'
-import home from './home'
-import venuePage from './venuePage'
+import home from './pages/home'
+import venuePage from './pages/venue'
+import aboutSchema from './pages/about'
+import coverImage from './coverImage'
 
 export const schemaTypes = [
   program,
-  about,
   artist,
+  ...aboutSchema,
+  coverImage,
   home,
-  contactUs,
-  people,
-  partnerships,
-  opportunities,
-  support,
   education,
   media,
   venue,

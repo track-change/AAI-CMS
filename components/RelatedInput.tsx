@@ -1,43 +1,30 @@
-// ./schema/hosts/HostsInput.tsx
-
 import {Grid, Stack, Button} from '@sanity/ui'
-import {randomKey} from '@sanity/util/content'
 import {AddIcon} from '@sanity/icons'
-import {useCallback} from 'react'
-import {ArrayOfObjectsInputProps, Reference, insert, set, setIfMissing, useClient} from 'sanity'
+import {useState, useEffect} from 'react'
 
-const DEPARTMENTS = [
-  {title: 'Program', value: 'program'},
-  {title: 'Artist', value: 'artist'},
-]
+const DEPARTMENTS = [{title: 'Related', value: 'related'}]
 
-export function RelatedInput(props: ArrayOfObjectsInputProps) {
-  const {onChange, members} = props
-  console.log(members)
-  const client = useClient({apiVersion: `2023-04-01`})
-  const handleClick = useCallback(
-    async (event: React.MouseEvent<HTMLButtonElement>) => {
-      const department = event.currentTarget.value
-      const query = `*[_type == "${department}" && 
-        !(_id in path("drafts.**"))]._id`
-      const departmentItems = (await client.fetch<Reference[]>(query, {department})) || []
-      const itemRef: {_key: string; _type: string; _ref: Reference}[] = departmentItems.map(
-        (itemID) => ({
-          _key: randomKey(12),
-          _type: 'relatedProgram',
-          _ref: itemID,
+export const RelatedInput = ({documentId, ...props}) => {
+  const [suggestions, setSuggestions] = useState([])
+
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      // Replace this with your actual tag field name
+      const currentTagsQuery = `*[_id == "${documentId}"]{tags}[0]`
+      const currentTags = await client.fetch(currentTagsQuery)
+
+      if (currentTags?.tags) {
+        const relatedItemsQuery = `*[_type in ["program", "artist"] && count(tags[match($currentTags)]) > 0]{..., "tagMatchCount": count(tags[match($currentTags)])} | order(tagMatchCount desc)`
+        const relatedItems = await client.fetch(relatedItemsQuery, {
+          currentTags: currentTags.tags.join('|'),
         })
-      )
-      // how do i filter to remove the current program from the list?
 
-      const itemFirstThree = itemRef.slice(0, 2)
+        setSuggestions(relatedItems)
+      }
+    }
 
-      // const itemPatches = itemFirstThree.map((item) => insert([item], 'after', [-1]))
-      // onChange([setIfMissing([]), ...itemPatches])
-      onChange(set(itemFirstThree))
-    },
-    [onChange, client]
-  )
+    fetchSuggestions()
+  }, [documentId])
 
   return (
     <Stack space={3}>
@@ -50,10 +37,11 @@ export function RelatedInput(props: ArrayOfObjectsInputProps) {
             icon={AddIcon}
             text={department.title}
             mode="ghost"
-            onClick={handleClick}
           />
         ))}
       </Grid>
     </Stack>
   )
 }
+
+// Wrap the component with withDocument before exporting
