@@ -15,6 +15,7 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
     {schemaType: 'home', documentId: 'home', title: 'Home'},
     {schemaType: 'visit', documentId: 'visit', title: 'Visit'},
     {schemaType: 'venuePage', documentId: 'venuePage', title: 'Venue Page'},
+    {schemaType: 'donate', documentId: 'donate', title: 'Donate'},
   ]
 
   return S.list()

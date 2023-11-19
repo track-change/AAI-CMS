@@ -9,6 +9,43 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'coverImage',
+      type: 'coverImage',
+    }),
+    defineField({
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'tags',
+      title: 'tags',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'tag'}}],
     }),
   ],
+
+  preview: {
+    select: {
+      title: 'title',
+      media: 'coverImage',
+    },
+    prepare(selection) {
+      const {title, media} = selection
+      return {
+        title,
+        media,
+      }
+    },
+  },
 })

@@ -1,5 +1,4 @@
 import blockContent from './blockContent'
-import post from './post'
 import settings from './settings'
 import artist from './artist'
 import program from './program'
@@ -15,6 +14,7 @@ import banner from './banner'
 import home from './pages/home'
 import venuePage from './pages/venue'
 import aboutSchema from './pages/about'
+import donate from './pages/donate'
 import coverImage from './coverImage'
 
 export const schemaTypes = [
@@ -29,7 +29,7 @@ export const schemaTypes = [
   venuePage,
   visit,
   ticket,
-  post,
+  donate,
   form,
   tags,
   news,
