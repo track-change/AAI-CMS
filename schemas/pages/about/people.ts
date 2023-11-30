@@ -31,7 +31,7 @@ export default defineType({
           options: {
             filter: 'isBoardMember == true',
           },
-          validation: (Rule) => Rule.unique(),
+          // validation: (Rule) => Rule.unique(),
         },
       ],
     }),
@@ -47,7 +47,7 @@ export default defineType({
           options: {
             filter: 'isBoardMember == false',
           },
-          validation: (Rule) => Rule.unique(),
+          // validation: (Rule) => Rule.unique(),
         },
       ],
     }),
