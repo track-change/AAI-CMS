@@ -141,6 +141,11 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'matterport',
+      title: 'Matterport Link',
+      type: 'string',
+    }),
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
