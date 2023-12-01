@@ -30,7 +30,45 @@ export default defineType({
     defineField({
       name: 'openingHours',
       title: 'Opening Hours',
-      type: 'string',
+      type: 'array',
+      of: [
+        {
+          name: 'hours',
+          title: 'Hours',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'day',
+              title: 'Day',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'Monday', value: 'monday'},
+                  {title: 'Tuesday', value: 'tuesday'},
+                  {title: 'Wednesday', value: 'wednesday'},
+                  {title: 'Thursday', value: 'thursday'},
+                  {title: 'Friday', value: 'friday'},
+                  {title: 'Saturday', value: 'saturday'},
+                  {title: 'Sunday', value: 'sunday'},
+                ],
+              },
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'openingTime',
+              title: 'Opening Time',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'closingTime',
+              title: 'Closing Time',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'contact',

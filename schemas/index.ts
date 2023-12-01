@@ -15,7 +15,9 @@ import home from './pages/home'
 import venuePage from './pages/venue'
 import aboutSchema from './pages/about'
 import donate from './pages/donate'
-import coverImage from './coverImage'
+import coverImage from '../components/coverImage'
+import faq from './faq'
+import artists from './pages/artists'
 
 export const schemaTypes = [
   program,
@@ -36,4 +38,6 @@ export const schemaTypes = [
   blockContent,
   settings,
   banner,
+  faq,
+  artists,
 ]

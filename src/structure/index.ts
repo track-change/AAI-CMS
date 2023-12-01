@@ -13,6 +13,7 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
 
   const sitePages = [
     {schemaType: 'home', documentId: 'home', title: 'Home'},
+    {schemaType: 'artists', documentId: 'artists', title: 'Artists'},
     {schemaType: 'visit', documentId: 'visit', title: 'Visit'},
     {schemaType: 'venuePage', documentId: 'venuePage', title: 'Venue Page'},
     {schemaType: 'donate', documentId: 'donate', title: 'Donate'},
