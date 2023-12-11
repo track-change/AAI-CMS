@@ -22,7 +22,7 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'coverImage',
+      name: 'image',
       title: 'Image',
       type: 'image',
       options: {
