@@ -2,8 +2,8 @@ import {defineField, defineType} from 'sanity'
 import {ImageIcon, DocumentTextIcon} from '@sanity/icons'
 
 export default defineType({
-  name: 'venuePage',
-  title: 'Venue',
+  name: 'educationPage',
+  title: 'Education Page',
   type: 'document',
   fields: [
     defineField({
@@ -66,18 +66,18 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'rentals',
-      title: 'Rentals',
+      name: 'educations',
+      title: 'Education',
       type: 'array',
       of: [
         {
-          name: 'venue',
-          title: 'Venue',
+          name: 'education',
+          title: 'Education',
           type: 'reference',
-          to: [{type: 'venue'}],
-          validation: (Rule) => Rule.unique().error('Cant have duplicate venues'),
+          to: [{type: 'education'}],
         },
       ],
+      validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
     }),
   ],
 })

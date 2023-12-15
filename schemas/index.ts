@@ -13,6 +13,7 @@ import news from './news'
 import banner from './banner'
 import home from './pages/home'
 import venuePage from './pages/venue'
+import educationPage from './pages/education'
 import aboutSchema from './pages/about'
 import donate from './pages/donate'
 import coverImage from '../components/coverImage'
@@ -29,6 +30,7 @@ export const schemaTypes = [
   media,
   venue,
   venuePage,
+  educationPage,
   visit,
   ticket,
   donate,
