@@ -3,7 +3,7 @@ import {ImageIcon, DocumentTextIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'venuePage',
-  title: 'Venue',
+  title: 'Venue Page',
   type: 'document',
   fields: [
     defineField({
@@ -65,19 +65,19 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: 'rentals',
-      title: 'Rentals',
-      type: 'array',
-      of: [
-        {
-          name: 'venue',
-          title: 'Venue',
-          type: 'reference',
-          to: [{type: 'venue'}],
-          validation: (Rule) => Rule.unique().error('Cant have duplicate venues'),
-        },
-      ],
-    }),
+    // defineField({
+    //   name: 'rentals',
+    //   title: 'Rentals',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       name: 'venue',
+    //       title: 'Venue',
+    //       type: 'reference',
+    //       to: [{type: 'venue'}],
+    //     },
+    //   ],
+    //   validation: (Rule) => Rule.unique().error('Cant have duplicate venues'),
+    // }),
   ],
 })

@@ -65,19 +65,19 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: 'educations',
-      title: 'Education',
-      type: 'array',
-      of: [
-        {
-          name: 'education',
-          title: 'Education',
-          type: 'reference',
-          to: [{type: 'education'}],
-        },
-      ],
-      validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
-    }),
+    // defineField({
+    //   name: 'educations',
+    //   title: 'Education',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       name: 'education',
+    //       title: 'Education',
+    //       type: 'reference',
+    //       to: [{type: 'education'}],
+    //     },
+    //   ],
+    //   validation: (Rule) => Rule.unique().error("Has to be unique, can't have duplicates"),
+    // }),
   ],
 })

@@ -20,6 +20,12 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'order',
+      title: 'Order of display',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'coverImage',
       type: 'coverImage',
     }),

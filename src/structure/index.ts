@@ -9,6 +9,7 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
     {schemaType: 'people', documentId: 'people', title: 'People'},
     {schemaType: 'support', documentId: 'support', title: 'Support'},
     {schemaType: 'opportunities', documentId: 'opportunities', title: 'Opportunities'},
+    {schemaType: 'partnerships', documentId: 'partnerships', title: 'Partnerships'},
   ]
 
   const sitePages = [

@@ -7,6 +7,7 @@ import opportunities from './opportunities'
 import support from './support'
 import person from './person'
 import funder from './funder'
+import partnerships from './partnerships'
 
 export default [
   person,
@@ -18,4 +19,5 @@ export default [
   opportunities,
   support,
   funder,
+  partnerships,
 ]

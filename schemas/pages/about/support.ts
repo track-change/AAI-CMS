@@ -34,12 +34,6 @@ export default defineType({
     }),
 
     defineField({
-      name: 'partnership',
-      title: 'Partnership',
-      type: 'blockContent',
-    }),
-
-    defineField({
       name: 'banners',
       title: 'Banners',
       type: 'array',
